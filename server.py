@@ -65,7 +65,7 @@ def handle_client(conn, addr):
         else:
             print(f"来自 {ip} 的重复超时消息。", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     finally:
-        conn.close()
+        print(f"等待心跳中")
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind(("", server_port))
