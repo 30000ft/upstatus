@@ -48,9 +48,10 @@ def handle_client(conn, addr):
                 if not clients_connected[ip]:
                     print(f"来自 {ip} 的心跳消息。")
                     clients_connected[ip] = True
+                    #add timestamp
                     send_email_notification(f"{ip}网络恢复通知", f"{ip}内网与互联网重新连接了。")
                 else:
-                    print(f"来自 {ip} 的重复心跳消息。")
+                    print(f"来自 {ip} 的重复心跳消息。",time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
                 conn.send("ok".encode())
             else:
                 print(f"来自 {ip} 的无效心跳消息。")
@@ -61,7 +62,7 @@ def handle_client(conn, addr):
             clients_connected[ip] = False
             send_email_notification(f"{ip}网络中断通知", f"{ip}内网与互联网断开连接了。")
         else:
-            print(f"来自 {ip} 的重复超时消息。")
+            print(f"来自 {ip} 的重复超时消息。", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     finally:
         conn.close()
 
