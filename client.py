@@ -21,7 +21,7 @@ while True:
                 if not data:
                     break
                 print(f"{client_name}已发送心跳。")
-                print(f"来自服务器的响应：{data.decode()}"
+                print(f"来自服务器的响应：{data.decode()}")
                 time.sleep(heartbeat_interval)
     except ConnectionRefusedError:
         print(f"连接到服务器 {server_host}:{server_port} 失败，请检查服务端是否已启动，或者未连接网络。")
