@@ -61,6 +61,7 @@ def handle_client(conn, addr):
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind(("", server_port))
     s.listen()
+    print(f"服务器已启动，正在监听端口 {server_port}。")
 
     while True:
         conn, addr = s.accept()
