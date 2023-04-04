@@ -42,6 +42,7 @@ def handle_client(conn, addr):
                 break
 
             if data.decode() == "heartbeat":
+                print(f"来自 {ip} 的心跳消息。")
                 if clients[ip]:
                     clients[ip] = False
                     send_email_notification(f"{ip}网络恢复通知", f"{ip}内网与互联网重新连接了。")
