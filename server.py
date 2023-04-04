@@ -29,7 +29,7 @@ def send_email_notification(subject, content):
     server = smtplib.SMTP_SSL(smtpemail_host, 465)
     server.login(email_sender, email_password)
     server.send_message(msg)
-    print(f"已向 {email_recipient} 发送邮件。")
+    print(f"已向 {email_recipient} 发送邮件。default")
     server.quit()
 
 def handle_client(conn, addr):

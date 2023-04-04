@@ -24,7 +24,9 @@ while True:
                 print(f"来自服务器的响应：{data.decode()}")
                 time.sleep(heartbeat_interval)
     except ConnectionRefusedError:
-        print(f"连接到服务器 {server_host}:{server_port} 失败，请检查服务端是否已启动，或者未连接网络。")
+        print(f"连接到服务器 {server_host}:{server_port} 失败，请检查服务端是否已启动，或者已断网。")
+        # 等待10秒后重试
+        time.sleep(10)
     except KeyboardInterrupt:
         print(f"{client_name}已停止心跳发送。")
         break
