@@ -14,6 +14,7 @@ timeout = int(os.getenv("TIMEOUT"))
 email_sender = os.getenv("EMAIL_ADDRESS")
 email_password = os.getenv("EMAIL_PASSWORD")
 email_recipient = os.getenv("EMAIL_RECIPIENT")
+smtpemail_host = os.getenv("SMTPEMAIL_HOST")
 
 clients = {}  # 存储客户端的IP地址和状态
 
@@ -24,7 +25,7 @@ def send_email_notification(subject, content):
     msg["From"] = email_sender
     msg["To"] = email_recipient
 
-    server = smtplib.SMTP_SSL("smtp.example.com", 465)
+    server = smtplib.SMTP_SSL(smtpemail_host, 465)
     server.login(email_sender, email_password)
     server.send_message(msg)
     server.quit()
