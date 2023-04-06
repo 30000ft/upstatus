@@ -36,3 +36,5 @@ while True:
         break
     finally:
         print(f"{client_name}已断开连接。完成异常处理Finally。")
+        #断开连接
+        s.close()

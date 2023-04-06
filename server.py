@@ -66,7 +66,7 @@ def handle_client(conn, addr):
             print(f"来自 {ip} 的重复超时消息。", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     finally:
         if clients_connected[ip]:
-            print(f"来自 {ip} 的超时消息，连接已断开")
+            print(f"来自 {ip} 的消息，连接已断开，客户 key interrupt")
             clients_connected[ip] = False
             send_email_notification(f"{ip}网络中断通知", f"{ip}内网与互联网断开连接了。")
             print(f"已向 {email_recipient} 发送邮件。finally")
